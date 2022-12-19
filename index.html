@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play STERKplaats_boodschappen.</tw-noscript></noscript></tw-story>
-<tw-storydata name="STERKplaats_boodschappen" startnode="23" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="470584A0-7EA9-4FE0-95B2-D1A1E93AD7EE" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story[tags~="Brief"]{
+<tw-storydata name="STERKplaats_boodschappen" startnode="30" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="470584A0-7EA9-4FE0-95B2-D1A1E93AD7EE" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story[tags~="Brief"]{
   background-color: white;
   color: black;
 }
@@ -21,17 +21,23 @@ tw-story[tags~="Boodschappen"]{
 }
 
 tw-passage[tags~="Boodschappen"]{
-  backdrop-filter: contrast(35%);
-  color: black;
+  backdrop-filter: contrast(30%);
+  color: white;
 }
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">var audio = document.createElement('audio');
-	audio.src = 'https://sterkplaats.rfrrick.repl.co/soundGrovery.mp3';
+
+tw-story[tags~="Boodschappen"] tw-expression[name~="link-goto"]{
+  background-color: #404040;
+}
+
+tw-story[tags~="Boodschappen"] tw-expression[name~="link"]{
+  background-color: #404040;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">var audio = new Audio('https://sterkplaats.rfrrick.repl.co/soundGrocery.mp3');
 	audio.loop = true;
-	audio.play();
-	</script><tw-tag name="Test" color="red"></tw-tag><tw-tag name="Boodschappen" color="yellow"></tw-tag><tw-tag name="Brief" color="red"></tw-tag><tw-passagedata pid="1" name="Rembering" tags="Boodschappen" position="900,600" size="100,100">You have |amount&gt;[] seconds left!
+	audio.play();</script><tw-tag name="Test" color="red"></tw-tag><tw-tag name="Boodschappen" color="yellow"></tw-tag><tw-tag name="Brief" color="red"></tw-tag><tw-tag name="Talk" color="green"></tw-tag><tw-passagedata pid="1" name="Rembering" tags="Boodschappen" position="900,600" size="100,100">You have |amount&gt;[] seconds left!
 ---
 Onthoud volgende boodschappen:
-	(for: each _temp, ...$Boodschappenlijst)[* _temp
+	(for: each _temp, ...$Boodschappenlijst)[(text-rotate-x: 0.25*(random: -75+(abs: $battery),75-(abs: $battery)))+(text-rotate-y: 0.25*(random: -75+(abs: $battery),(abs: 75-$battery)))+(text-rotate-z: 0.25*(random: -75+(abs: $battery),75-(abs: $battery)))[* _temp
+    ]
     ]
 
 Haal de boodschappen op:
@@ -45,8 +51,7 @@ Haal de boodschappen op:
     (set: $counter to it+180)
 ]
 
-
-&lt;!--(text-rotate-y:45)+(size:0.5)[ATE BREAKFAST!
+(text-rotate-y:45)+(size:0.5)[ATE BREAKFAST!
 
 READ THE NEWS!
 
@@ -60,7 +65,7 @@ in an elevator that&#39;s
 suddenly started
 
 plunging rapidly.]
-(text-rotate:45)[Tilted]--&gt;
+(text-rotate:45)[Tilted]
 (set:$previousIntersection to &quot;Intersection6&quot;)</tw-passagedata><tw-passagedata pid="2" name="Aisle1" tags="Boodschappen" position="1325,600" size="100,100">Energiepercentage: |energie&gt;[]
 Producten in winkelmandje
 |producten&gt;[]
@@ -76,6 +81,7 @@ Producten in winkelmandje
 	(set: $counter to it - 1)
 	(if: $counter is 0)[(go-to: &quot;Sure?&quot;)]
     (set: $battery to it-0.05)
+    (set: $currentBattery to $battery)
 ]
 
 (live: 0.25s)[
@@ -86,9 +92,11 @@ Producten in winkelmandje
 |producten&gt;[]
 ---
 Wat zijn er veel producten om uit te kiezen. 
-	(for: each _temp, ...$zuivel)[(live: 0.75s)[(link: _temp)[(set: $boodschappen to it+(a:_temp))]]
-    ](live: 2s)[(link: &quot;1L De zaanse hoeven half volle melk&quot;)
-	[(set:$boodschappen to it+(a:&quot;1L De zaanse hoeven half volle melk&quot;))]]
+	(for: each _temp, ...$zuivel)[(text-rotate-x: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))+(text-rotate-y: 0.25*(random: -75+(trunc: $battery),(trunc: 75-$battery)))+(text-rotate-z: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))[(live: 0.75s)[(link: _temp)[(set: $boodschappen to it+(a:_temp))]]]]
+    (text-rotate-x: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))+(text-rotate-y: 0.25*(random: -75+(trunc: $battery),(trunc: 75-$battery)))+(text-rotate-z: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))[(live: 2s)[(link: &quot;1L De zaanse hoeven half volle melk&quot;)
+	[(set:$boodschappen to it+(a:&quot;1L De zaanse hoeven half volle melk&quot;))]]]
+
+
 
 [[Back-&gt;$previousAisle]]
 
@@ -106,8 +114,8 @@ Producten in winkelmandje
 |producten&gt;[]
 ---
 Wat zijn er veel producten om uit te kiezen. 
-	(for: each _temp, ...$broden)[(live: 0.75s)[(link: _temp)[(set: $boodschappen to it+(a:_temp))]]
-    ]
+	(for: each _temp, ...$broden)[(text-rotate-x: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))+(text-rotate-y: 0.25*(random: -75+(trunc: $battery),(trunc: 75-$battery)))+(text-rotate-z: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))[(live: 0.75s)[(link: _temp)[(set: $boodschappen to it+(a:_temp))]]]]
+    
 [[Back-&gt;$previousAisle]]
 
 (live: 1s)[
@@ -239,7 +247,7 @@ Producten in winkelmandje
 |producten&gt;[]
 ---
 Wat zijn er veel producten om uit te kiezen. 
-	(for: each _temp, ...$drinks)[(live: 0.75s)[(link: _temp)[(set: $boodschappen to it+(a:_temp))]]
+	(for: each _temp, ...$drinks)[(text-rotate-x: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))+(text-rotate-y: 0.25*(random: -75+(trunc: $battery),(trunc: 75-$battery)))+(text-rotate-z: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))[(live: 0.75s)[(link: _temp)[(set: $boodschappen to it+(a:_temp))]]]
     ]
 
 [[Back-&gt;$previousAisle]]
@@ -258,7 +266,7 @@ Producten in winkelmandje
 |producten&gt;[]
 ---
 Wat zijn er veel producten om uit te kiezen. 
-	(for: each _temp, ...$snoepgoed)[(live: 0.75s)[(link: _temp)[(set: $boodschappen to it+(a:_temp))]]
+	(for: each _temp, ...$snoepgoed)[(text-rotate-x: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))+(text-rotate-y: 0.25*(random: -75+(trunc: $battery),(trunc: 75-$battery)))+(text-rotate-z: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))[(live: 0.75s)[(link: _temp)[(set: $boodschappen to it+(a:_temp))]](stop:)]
     ]
 
 [[Back-&gt;$previousAisle]]
@@ -277,7 +285,7 @@ Producten in winkelmandje
 |producten&gt;[]
 ---
 Wat zijn er veel producten om uit te kiezen. 
-	(for: each _temp, ...$aardappelen)[(live: 0.75s)[(link: _temp)[(set: $boodschappen to it+(a:_temp))]]
+	(for: each _temp, ...$aardappelen)[(text-rotate-x: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))+(text-rotate-y: 0.25*(random: -75+(trunc: $battery),(trunc: 75-$battery)))+(text-rotate-z: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))[(live: 0.75s)[(link: _temp)[(set: $boodschappen to it+(a:_temp))]]]
     ]
 
 [[Back-&gt;$previousAisle]]
@@ -296,7 +304,7 @@ Producten in winkelmandje
 |producten&gt;[]
 ---
 Wat zijn er veel producten om uit te kiezen. 
-	(for: each _temp, ...$groente)[(live: 0.75s)[(link: _temp)[(set: $boodschappen to it+(a:_temp))]]
+	(for: each _temp, ...$groente)[(text-rotate-x: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))+(text-rotate-y: 0.25*(random: -75+(trunc: $battery),(trunc: 75-$battery)))+(text-rotate-z: 0.25*(random: -75+(trunc: $battery),75-(trunc: $battery)))[(live: 0.75s)[(link: _temp)[(set: $boodschappen to it+(a:_temp))]]]
     ]
 
 [[Back-&gt;$previousAisle]]
@@ -337,7 +345,8 @@ Wat zijn er veel producten om uit te kiezen.
  ]]]
  
  (live: 6s)
-[[[Back to start-&gt;GeneralStart]]]
+[[[Back to start-&gt;GeneralStart]]
+[[Try other route (ALPHA test)-&gt;TestStart]]]
  
  </tw-passagedata><tw-passagedata pid="22" name="Sure?" tags="Boodschappen" position="2100,750" size="100,100">Energiepercentage: |energie&gt;[]
 ---
@@ -369,7 +378,7 @@ Tijd is voorbij!
 
 (live: 0.25s)[
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]</tw-passagedata><tw-passagedata pid="23" name="WelkomBoodschappen" tags="" position="750,600" size="100,100">(set: $battery to (random: 1, 75))(if: $battery &gt; 25)[&#39;&#39;Boodschappen ophalen&#39;&#39;
+]</tw-passagedata><tw-passagedata pid="23" name="WelkomBoodschappen" tags="" position="750,600" size="100,100">&lt;!--(set: $battery to (random: 26,75))--&gt;(if: $battery &gt; 25)[&#39;&#39;Boodschappen ophalen&#39;&#39;
 Welkom bij de supermarkt. 
 Hier ga je beleven hoe het is om spullen op te halen in de supermarkt met NAH.
 Je zal eerst een lijst krijgen met welke producten er gehaald moeten worden en daarna heb je 3 minuten om deze spullen op te halen.
@@ -395,13 +404,14 @@ Je zal eerst een lijst krijgen met welke producten er gehaald moeten worden en d
 (set: $Boodschappenlijst to (a:&quot;Coca cola zero sugar 6-pack&quot;,&quot;Eigen merk half witte brood&quot;,&quot;Eigen merk 3kg aardappelen&quot;,&quot;500g brocolli&quot;,&quot;1L De zaanse hoeven volle melk&quot;,&quot;Blue band halverine&quot;, &quot;Blue band halverine&quot;))
 (set: $counter to 210)
 (set: $talked to 0)]
+(set: $currentBattery to $battery)
 (else:)[You do not have enough energy.]</tw-passagedata><tw-passagedata pid="24" name="RulesBoodschappen" tags="" position="750,725" size="100,100">&#39;&#39;Rule&#39;&#39;
 * Alleen de spullen die gevraagd worden moeten gehaald worden
 * Je krijgt maar 3 minuten om spullen op te halen in de supermarkt.
 * Eerder klaar? Ga naar de kassa.
 * Probeer op je batterij te letten, zodat deze niet te laag wordt.
 
-[[Back-&gt;WelkomBoodschappen]]</tw-passagedata><tw-passagedata pid="25" name="Bekende" tags="" position="800,300" size="100,100">(set: $talked to 1)
+[[Back-&gt;WelkomBoodschappen]]</tw-passagedata><tw-passagedata pid="25" name="Bekende" tags="Boodschappen Talk" position="800,300" size="100,100">(set: $talked to 1)
 [In deze gangpad zijn drinkwaren en snoep te vinden.]&lt;name|
 [He, er loopt een bekende in het gangpad. Laten we met hem gaan praten.
 [Let&#39;s talk]&lt;letsTalk|]&lt;talk|
@@ -467,7 +477,7 @@ Hoe gaat het nu met je?
 	(set: $counter to it - 1)
 	(if: $counter is 0)[(go-to: &quot;Sure?&quot;)]
     (set: $battery to it-0.15)
-]</tw-passagedata><tw-passagedata pid="26" name="GeneralStart" tags="" position="500,500" size="100,100">(set: $battery to (random: 1, 75))(if: $battery &gt; 25)[
+]</tw-passagedata><tw-passagedata pid="26" name="GeneralStart" tags="" position="500,700" size="100,100">(set: $battery to (random: 1, 75))(if: $battery &gt; 25)[
 [&#39;&#39;Welkom&#39;&#39;
 Welkom bij minigames waarbij je ervaart hoe het is om te leven met Niet aangeboren hersenletsel (NAH). Welke wil je spelen?
 [[Boodschappen ophalen-&gt;WelkomBoodschappen]]
@@ -508,7 +518,33 @@ Gemeente rotterdam
 * De brief kan pas verder gelezen worden zodra de keuze daarvoor gekozen is.
 * Probeer zo goed mogelijke brief ervan te maken.
 
-[[Terug-&gt;WelkomMoeilijkeBrief]] </tw-passagedata></tw-storydata>
+[[Terug-&gt;WelkomMoeilijkeBrief]] </tw-passagedata><tw-passagedata pid="30" name="TestStart" tags="" position="500,500" size="100,100">&#39;&#39;//Alpha test//&#39;&#39;
+Om te testen is ervoor gezorgd dat vanaf hier 3 moeilijkheden gekozen kan worden.
+
+[&#39;&#39;Simpel&#39;&#39;]&lt;simple|: Hierbij ben je net de dag begonnen en zal de moeilijkheid van het lezen zal nog niet heel moeilijk zijn. //Denk hierbij aan energiepercentage tussen 60 en 75.//
+[&#39;&#39;Gemiddeld&#39;&#39;]&lt;gemiddeld|: Hierbij heb je al wel dingen gedaan maar nog niet drastisch weinig energie. 
+//Denk hierbij aan energiepercentage tussen 45 en 60.//
+[&#39;&#39;Moeilijk&#39;&#39;]&lt;moeilijk|: Hierbij zullen de worden stuk moeilijker te lezen zijn. //Denk hierbij aan energiepercentage tussen 25 en 45.//
+[&#39;&#39;Onmogelijk&#39;&#39;]&lt;impossible|: Als energie onder de 25% ligt zal je het spel niet kunnen spelen.
+
+(click: ?simple)[
+	(set: $battery to (random: 60, 75))
+    (go-to: &quot;WelkomBoodschappen&quot;)]
+(click: ?gemiddeld)[
+	(set: $battery to (random: 45, 60))
+    (go-to: &quot;WelkomBoodschappen&quot;)]
+(click: ?moeilijk)[
+	(set: $battery to (random: 25, 45))
+    (go-to: &quot;WelkomBoodschappen&quot;)]
+(click: ?impossible)[
+	(set: $battery to (random: 1, 25))
+    (go-to: &quot;WelkomBoodschappen&quot;)]
+    
+&#39;&#39;Mogelijke uitbreidingen&#39;&#39;
+* Winkelwagen ook moeilijker om te zien dan nu.
+* Sound. (Dit werkt nu op website niet maar daarvoor wel //Mee bezig uit te zoeken//)
+* Text flashen/bewegen.
+* Eventuele ideeen.</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
