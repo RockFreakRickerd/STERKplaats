@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="icon" href="Images/logo.png">
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <title>STERKplaats_Brief</title>
@@ -27,17 +26,8 @@ Je zal een brief krijgen waarin woorden weg gelaten zijn (moeilijke woorden) en 
 [[Let&#39;s go-&gt;MoeilijkeBrief]]
 [[Rules-&gt;RulesBrief]] 
 
-(set: $choice1 to &quot;(...)&quot;)
-(set: $choice2 to &quot;(...)&quot;)
-(set: $choice3 to &quot;(...)&quot;)
-(set: $choice4 to &quot;(...)&quot;)
-(set: $choice5 to &quot;(...)&quot;)
-(set: $choice6 to &quot;(...)&quot;)
-(set: $choice7 to &quot;(...)&quot;)
-(set: $choice8 to &quot;(...)&quot;)
-(set: $choice9 to &quot;(...)&quot;)
-(set: $choice10 to &quot;(...)&quot;)
-(set: $choice11 to &quot;(...)&quot;)</tw-passagedata><tw-passagedata pid="2" name="MoeilijkeBrief" tags="Brief" position="900,200" size="100,100">(set: $battery to 50)(if: $battery &lt;45)[
+(set: $choice1 to &quot;....&quot;)
+(set: $choice2 to &quot;...&quot;)</tw-passagedata><tw-passagedata pid="2" name="MoeilijkeBrief" tags="Brief" position="900,200" size="100,100">(set: $battery to 50)(if: $battery &lt;45)[
 &#39;&#39;Gemeente Rotterdam&#39;&#39;
 Beste meneer/mevrouw, 
 Wij als gemeente sturen u deze brief om uw te informeren over [$choice1]&lt;choice1|. |show1)[Omdat u volgens onze berekeningen bepaalde betaling gemist heeft. Deze gaan over [$choice2]&lt;choice2|]
@@ -91,59 +81,20 @@ Hans Janssen
 Wethouder Wonen en Ruimtelijke ordening 
 
 
-(click-rerun: ?choice1)[(dialog: bind $choice1, &quot;Wat hoort hier te staan?&quot;, &quot;vuilnis-
-molukken&quot;, &quot;het riool&quot;, &quot;lantaarnpalen&quot;)(replace: ?choice1)[$choice1]]
-(click-rerun: ?choice2)[(dialog: bind $choice2, &quot;Wat hoort hier te staan?&quot;, &quot;lijst&quot;, &quot;contract&quot;, &quot;uitleg&quot;)(replace: ?choice2)[$choice2]
-](click-rerun: ?choice3)[(dialog: bind $choice3, &quot;Wat hoort hier te staan?&quot;, &quot;inspecteur&quot;, &quot;advocaat&quot;, &quot;architect&quot;)(replace: ?choice3)[$choice3]](click-rerun: ?choice4)[(dialog: bind $choice4, &quot;Wat hoort hier te staan?&quot;, &quot;verzakking&quot;, &quot;verzuring&quot;, &quot;vervuiling&quot;)(replace: ?choice4)[$choice4]](click-rerun: ?choice5)[(dialog: bind $choice5, &quot;Wat hoort hier te staan?&quot;, &quot;proefboringen&quot;, &quot;vaststellingen&quot;, &quot;verwerking&quot;)(replace: ?choice5)[$choice5]](click-rerun: ?choice6)[
-(dialog: bind $choice6, &quot;Wat hoort hier te staan?&quot;, &quot;medewerking&quot;, &quot;te vertrekken&quot;, &quot;aanwezigheid&quot;)(replace: ?choice6)[$choice6]
-](click-rerun: ?choice7)[(dialog: bind $choice7, &quot;Wat hoort hier te staan?&quot;, &quot;Het riool&quot;, &quot;De vuilnismolukken&quot;, &quot;De lantaarnpalen&quot;)
-(replace: ?choice7)[$choice7]](click-rerun: ?choice8)[
-(dialog: bind $choice8, &quot;Wat hoort hier te staan?&quot;, &quot;test&quot;, &quot;verbouwing&quot;, &quot;inspectie&quot;)(replace: ?choice8)[$choice8]](click-rerun: ?choice9)[(dialog: bind $choice9, &quot;Wat hoort hier te staan?&quot;, &quot;de financiële kaders&quot;, &quot;het boordomein&quot;, &quot;het gebied&quot;)
-(replace: ?choice9)[$choice9]](click-rerun: ?choice10)[(dialog: bind $choice10, &quot;Wat hoort hier te staan?&quot;, &quot;een discussie&quot;, &quot;een rechtzaak&quot;, &quot;een ruzie&quot;)(replace: ?choice10)[$choice10]](click-rerun: ?choice11)[(dialog: bind $choice11, &quot;Wat hoort hier te staan?&quot;, &quot;staat&quot;, &quot;waarde&quot;, &quot;inboedel&quot;)(replace: ?choice11)[$choice11]]][[Done-&gt;BriefCheck]]</tw-passagedata><tw-passagedata pid="3" name="RulesBrief" tags="" position="700,400" size="100,100">&#39;&#39;Rules&#39;&#39;
+(click-rerun: ?choice1)[
+(dialog: bind $choice1, &quot;Waarover gaat deze mail?&quot;, &quot;boetes&quot;, &quot;belasting&quot;, &quot;gezondheidszorg&quot;)
+(replace: ?choice1)[$choice1]
+]
+
+
+]
+
+
+[[Terug-&gt;WelkomMoeilijkeBrief]]</tw-passagedata><tw-passagedata pid="3" name="RulesBrief" tags="" position="700,400" size="100,100">&#39;&#39;Rules&#39;&#39;
 * De brief kan pas verder gelezen worden zodra de keuze daarvoor gekozen is.
 * Probeer zo goed mogelijke brief ervan te maken.
 
-[[Terug-&gt;WelkomMoeilijkeBrief]] </tw-passagedata><tw-passagedata pid="4" name="BriefCheck" tags="Brief" position="1100,200" size="100,100">(set: $correct1 to &quot;het riool&quot;)(set: $correct2 to &quot;lijst&quot;)(set: $correct3 to &quot;inspecteur&quot;)(set: $correct4 to &quot;vervuiling&quot;)(set: $correct5 to &quot;proefboringen&quot;)(set: $correct6 to &quot;medewerking&quot;)(set: $correct7 to &quot;Het riool&quot;)(set: $correct8 to &quot;inspectie&quot;)(set: $correct9 to &quot;het gebied&quot;)(set: $correct10 to &quot;een discussie&quot;)(set: $correct11 to &quot;waarde&quot;)(set: $dif1 to &quot;de ondergrondse vuilnisgoot&quot;)(set: $dif2 to &quot;opnoeming&quot;)(set: $dif3 to &quot;mandataris&quot;)(set: $dif4 to &quot;pollutie&quot;)(set: $dif5 to &quot;monstering&quot;)(set: $dif6 to &quot;collaboratie&quot;)(set: $dif7 to &quot;De ondergrondse vuilnisgoot&quot;)(set: $dif8 to &quot;navorsing&quot;)(set: $dif9 to &quot;invloedssfeer&quot;)(set: $dif10 to &quot;trammelant&quot;)(set: $dif11 to &quot;allooi&quot;)
-
-Waar dacht jij dat het over ging in vergelijking met waar het echt over ging:
-
-
- 
-
-															Vooraankondiging inspecties en landmetingen 
-
- 
-
-Geachte mevrouw of heer, 
-
- 
-
-In het vervolg op de informatiebijeenkomst voor bewoners en eigenaren die gehouden is op 25 april 2021 informeren wij u over werkzaamheden van de pijpleidingen rondom de vervanging van de  (if: $choice1 is $correct1)[$dif1(color: green)[($choice1)]](else:)[(colour: red)[$choice1($correct1)]]. Het gaat daarbij over nadere afspraken met betrekking tot de voortuinen, bouwkundige inspectie van de woning en de inventarisatie van tuinen en schuren. Ook geven wij u een voorlopige planning en een werkzaamheden   (if: $choice2 is $correct2)[$dif2(color: green)[($choice2)]](else:)[(colour: red)[$choice2($correct2)]].  
-
-Binnenkort kunt u bezoek verwachten van medewerkers van de gemeente en een bouwkundig   (if: $choice3 is $correct3)[$dif3(color: green)[($choice3)]](else:)[(colour: red)[$choice3($correct3)]].  
-
-Inmiddels is vastgesteld dat een deel van pijpen ter hoogte van de Oude Kleiweg 35 tot en met 65 onder de voortuinen ligt. In het openbare gebied is  (if: $choice4 is $correct4)[$dif4(color: green)[($choice4)]](else:)[(colour: red)[$choice4($correct4)]] van de grond geconstateerd. De medewerkers van de gemeente willen via handmatige  (if: $choice5 is $correct5)[$dif5(color: green)[($choice5)]](else:)[(colour: red)[$choice5($correct5)]] in vier voortuinen bekijken waar de problematiek zich bevindt. Bewoners aan de Oude Kleiweg huisnummers 51, 55, 59 en 63 krijgen een brief van de gemeente met het verzoek om   (if: $choice6 is $correct6)[$dif6(color: green)[($choice6)]](else:)[(colour: red)[$choice6($correct6)]].  
-
- 
-
-De ondergrondse   (if: $choice7 is $correct7)[$dif7(color: green)[($choice7)]](else:)[(colour: red)[$choice7($correct7)]] ligt voor een deel dicht bij de woningen wat gevolgen kan hebben voor de uitvoering van de werkzaamheden. Om de bestaande situatie van de woningen duidelijk te krijgen, wordt een extern bureau gevraagd om in juli een  (if: $choice8 is $correct8)[$dif8(color: green)[($choice8)]](else:)[(colour: red)[$choice8($correct8)]] aan de woningen uit te voeren. Bewoners ontvangen binnenkort een brief.  
-
- 
-
-De gemeente geeft opdracht aan Bouw B.V. om de bestaande situaties van de tuinen van de huisnummers 35 t/m 65 vast te leggen, die zich binnen de  (if: $choice9 is $correct9)[$dif9(color: green)[($choice9)]](else:)[(colour: red)[$choice9($correct9)]] van de werkzaamheden bevinden. Dit om te voorkomen dat er achteraf  (if: $choice10 is $correct10)[$dif10(color: green)[($choice10)]](else:)[(colour: red)[$choice10($correct10)]] ontstaat over de oude situatie waarin de tuinen en schuren verkeerden voordat de werkzaamheden starten. De   (if: $choice11 is $correct11)[$dif11(color: green)[($choice11)]](else:)[(colour: red)[$choice11($correct11)]] van de tuin wordt bepaald om eventuele schade te vergoeden/herstellen.  
-
-  
-
- 
-
-Met vriendelijke groet, 
-
- 
-
-Hans Janssen 
-
-Wethouder Wonen en Ruimtelijke ordening 
-
+[[Terug-&gt;WelkomMoeilijkeBrief]] </tw-passagedata><tw-passagedata pid="4" name="BriefCheck" tags="" position="1100,200" size="100,100">(set: $correct1 to &quot;het riool&quot;)(set: $correct2 to &quot;lijst&quot;)(set: $correct3 to &quot;inspecteur&quot;)(set: $correct4 to &quot;vervuiling&quot;)(set: $correct5 to &quot;proefboring&quot;)(set: $correct6 to &quot;medewerking&quot;)(set: $correct7 to &quot;het riool&quot;)(set: $correct8 to &quot;inspectie&quot;)(set: $correct9 to &quot;het gebied&quot;)(set: $correct10 to &quot;een discussie&quot;)(set: $correct11 to &quot;waarde&quot;)
 </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
