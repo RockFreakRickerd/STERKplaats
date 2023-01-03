@@ -25,6 +25,14 @@ tw-story[tags~="Boodschappen"]{
 
 tw-link{
   color: lightblue;
+}
+
+.visited{
+color: lightblue;
+}
+
+.visited:hover{
+  color: #EE33EE;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">/**
  * Harlowe Audio Library (HAL), by Chapel, v2.3.0
  * for Harlowe 2.1.0 and higher
@@ -75,10 +83,10 @@ Dit zijn de producten in het winkelmandje:
 ]
 
 (live: 0.25s)[
-    (replace: ?producten)[$boodschappen]
+    (replace: ?producten)[(for: each _temp, ...$boodschappen)[(link: _temp)[(set: $boodschappen to it-(a:_temp))],]
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]</tw-passagedata><tw-passagedata pid="3" name="Zuivel" tags="Boodschappen" position="1300,400" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
-Dit zijn de producten in het winkelmandje:
+]]</tw-passagedata><tw-passagedata pid="3" name="Zuivel" tags="Boodschappen" position="1300,400" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
+Dit zijn de producten in het winkelmandje (klik erop als je die eruit wilt):
 |producten&gt;[]
 ---
 Wat zijn er veel producten om uit te kiezen. 
@@ -101,9 +109,9 @@ Wat zijn er veel producten om uit te kiezen.
 ]
 
 (live: 0.25s)[
-    (replace: ?producten)[$boodschappen]
+    (replace: ?producten)[(for: each _temp, ...$boodschappen)[(link: _temp)[(set: $boodschappen to it-(a:_temp))],]
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]</tw-passagedata><tw-passagedata pid="4" name="Brood" tags="Boodschappen" position="1325,750" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
+]]</tw-passagedata><tw-passagedata pid="4" name="Brood" tags="Boodschappen" position="1325,750" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
 Dit zijn de producten in het winkelmandje:
 |producten&gt;[]
 ---
@@ -125,9 +133,9 @@ Wat zijn er veel producten om uit te kiezen.
 ]
 
 (live: 0.25s)[
-    (replace: ?producten)[$boodschappen]
+    (replace: ?producten)[(for: each _temp, ...$boodschappen)[(link: _temp)[(set: $boodschappen to it-(a:_temp))],]
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]</tw-passagedata><tw-passagedata pid="5" name="Intersection1" tags="Boodschappen" position="1600,600" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
+]]</tw-passagedata><tw-passagedata pid="5" name="Intersection1" tags="Boodschappen" position="1600,600" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
 Dit zijn de producten in het winkelmandje:
 |producten&gt;[]
 ---
@@ -151,9 +159,9 @@ Je komt bij een kruispunt waar nu naartoe?
 ]
 
 (live: 0.25s)[
-    (replace: ?producten)[$boodschappen]
+    (replace: ?producten)[(for: each _temp, ...$boodschappen)[(link: _temp)[(set: $boodschappen to it-(a:_temp))],]
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]
+]]
 
 (set: $start to 0)</tw-passagedata><tw-passagedata pid="6" name="Aisle2" tags="Boodschappen" position="1600,400" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
 Dit zijn de producten in het winkelmandje:
@@ -179,9 +187,9 @@ Dit zijn de producten in het winkelmandje:
 ]
 
 (live: 0.25s)[
-    (replace: ?producten)[$boodschappen]
+    (replace: ?producten)[(for: each _temp, ...$boodschappen)[(link: _temp)[(set: $boodschappen to it-(a:_temp))],]
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]</tw-passagedata><tw-passagedata pid="7" name="Aisle3" tags="Boodschappen" position="1600,800" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
+]]</tw-passagedata><tw-passagedata pid="7" name="Aisle3" tags="Boodschappen" position="1600,800" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
 Dit zijn de producten in het winkelmandje:
 |producten&gt;[]
 ---
@@ -205,9 +213,9 @@ In dit gangpad zijn groente en aardappelen te vinden. Wat ga je doen?
 ]
 
 (live: 0.25s)[
-    (replace: ?producten)[$boodschappen]
+    (replace: ?producten)[(for: each _temp, ...$boodschappen)[(link: _temp)[(set: $boodschappen to it-(a:_temp))],]
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]</tw-passagedata><tw-passagedata pid="8" name="Intersection3" tags="Boodschappen" position="1600,1000" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
+]]</tw-passagedata><tw-passagedata pid="8" name="Intersection3" tags="Boodschappen" position="1600,1000" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
 Dit zijn de producten in het winkelmandje:
 |producten&gt;[]
 ---
@@ -228,9 +236,9 @@ Deadend. Ga terug of naar de kassa.
 ]
 
 (live: 0.25s)[
-    (replace: ?producten)[$boodschappen]
+    (replace: ?producten)[(for: each _temp, ...$boodschappen)[(link: _temp)[(set: $boodschappen to it-(a:_temp))],]
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]</tw-passagedata><tw-passagedata pid="9" name="Intersection2" tags="Boodschappen" position="1600,200" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
+]]</tw-passagedata><tw-passagedata pid="9" name="Intersection2" tags="Boodschappen" position="1600,200" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
 Dit zijn de producten in het winkelmandje:
 |producten&gt;[]
 ---
@@ -251,9 +259,9 @@ Deadend. Ga terug of naar de kassa
 ]
 
 (live: 0.25s)[
-    (replace: ?producten)[$boodschappen]
+    (replace: ?producten)[(for: each _temp, ...$boodschappen)[(link: _temp)[(set: $boodschappen to it-(a:_temp))],]
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]</tw-passagedata><tw-passagedata pid="10" name="Aisle4" tags="" position="1325,200" size="100,100">
+]]</tw-passagedata><tw-passagedata pid="10" name="Aisle4" tags="" position="1325,200" size="100,100">
 (set: $previousAisle to &quot;Aisle4&quot;)</tw-passagedata><tw-passagedata pid="11" name="Aisle5" tags="" position="1325,1000" size="100,100">(set: $previousAisle to &quot;Aisle5&quot;)</tw-passagedata><tw-passagedata pid="12" name="Intersection4" tags="" position="1100,200" size="100,100">Hmm een einde enige keuze is hier naar links of terug te gaan.
 (link: &quot;Terug&quot;)[(goto: &quot;Aisle4&quot;)]
 (link: &quot;Links&quot;)[(goto:&quot;Aisle2&quot;)]</tw-passagedata><tw-passagedata pid="13" name="Aisle6" tags="" position="1100,400" size="100,100">
@@ -272,9 +280,9 @@ Deadend. Ga terug.
 ]
 
 (live: 0.25s)[
-    (replace: ?producten)[$boodschappen]
+    (replace: ?producten)[(for: each _temp, ...$boodschappen)[(link: _temp)[(set: $boodschappen to it-(a:_temp))],]
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]</tw-passagedata><tw-passagedata pid="17" name="Drinks" tags="Boodschappen" position="1450,400" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
+]]</tw-passagedata><tw-passagedata pid="17" name="Drinks" tags="Boodschappen" position="1450,400" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
 Dit zijn de producten in het winkelmandje:
 |producten&gt;[]
 ---
@@ -297,9 +305,9 @@ Wat zijn er veel producten om uit te kiezen.
 ]
 
 (live: 0.25s)[
-    (replace: ?producten)[$boodschappen]
+    (replace: ?producten)[(for: each _temp, ...$boodschappen)[(link: _temp)[(set: $boodschappen to it-(a:_temp))],]
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]</tw-passagedata><tw-passagedata pid="18" name="Snoep" tags="Boodschappen" position="1750,400" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
+]]</tw-passagedata><tw-passagedata pid="18" name="Snoep" tags="Boodschappen" position="1750,400" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
 Dit zijn de producten in het winkelmandje:
 |producten&gt;[]
 ---
@@ -322,9 +330,9 @@ Wat zijn er veel producten om uit te kiezen.
 ]
 
 (live: 0.25s)[
-    (replace: ?producten)[$boodschappen]
+    (replace: ?producten)[(for: each _temp, ...$boodschappen)[(link: _temp)[(set: $boodschappen to it-(a:_temp))],]
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]</tw-passagedata><tw-passagedata pid="19" name="Aardappelen" tags="Boodschappen" position="1750,800" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
+]]</tw-passagedata><tw-passagedata pid="19" name="Aardappelen" tags="Boodschappen" position="1750,800" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
 Dit zijn de producten in het winkelmandje:
 |producten&gt;[]
 ---
@@ -347,9 +355,9 @@ Wat zijn er veel producten om uit te kiezen.
 ]
 
 (live: 0.25s)[
-    (replace: ?producten)[$boodschappen]
+    (replace: ?producten)[(for: each _temp, ...$boodschappen)[(link: _temp)[(set: $boodschappen to it-(a:_temp))],]
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]</tw-passagedata><tw-passagedata pid="20" name="Groente" tags="Boodschappen" position="1450,800" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
+]]</tw-passagedata><tw-passagedata pid="20" name="Groente" tags="Boodschappen" position="1450,800" size="100,100">Dit is op dit moment jouw energie level: |energie&gt;[]
 Dit zijn de producten in het winkelmandje:
 |producten&gt;[]
 ---
@@ -372,9 +380,9 @@ Wat zijn er veel producten om uit te kiezen.
 ]
 
 (live: 0.25s)[
-    (replace: ?producten)[$boodschappen]
+    (replace: ?producten)[(for: each _temp, ...$boodschappen)[(link: _temp)[(set: $boodschappen to it-(a:_temp))],]
     (replace: ?energie)[(digitformat: &quot;###.##&quot;, $battery)%]
-]</tw-passagedata><tw-passagedata pid="21" name="Kassa" tags="" position="2275,750" size="100,100"> (track:&#39;grocerySound&#39;, &#39;stop&#39;)Mensen met NAH ervaren moeilijkheden tijdens het doen van boodschappen. Ze ervaren overprikkeling en concentratieproblemen.
+]]</tw-passagedata><tw-passagedata pid="21" name="Kassa" tags="" position="2275,750" size="100,100"> (track:&#39;grocerySound&#39;, &#39;stop&#39;)Mensen met NAH ervaren moeilijkheden tijdens het doen van boodschappen. Ze ervaren overprikkeling en concentratieproblemen.
  
 
  De volgende producten zijn opgehaald:
